@@ -1,0 +1,32 @@
+<ng-container *ngIf="currentJoke; else emptyState">
+  <div
+    class="d-flex flex-column align-items-center justify-content-center mb-2 mt-3 position-relative"
+  >
+    <p-card>
+      <ng-template pTemplate="header">
+        <span
+          >Kategoria:
+          <span class="fw-bold">{{ currentJoke?.categoryName }}</span>
+        </span>
+      </ng-template>
+      <span class="text-center">{{ currentJoke?.content }}</span>
+      <ng-container *ngIf="this.isMyJokes">
+        <button
+          pButton
+          (click)="deleteJokeSubmit(currentJoke.id)"
+          label="Usuń"
+          class="position-absolute bottom-0 end-0 mb-3 me-3 p-button-danger"
+        ></button>
+      </ng-container>
+    </p-card>
+  </div>
+</ng-container>
+
+<ng-template #emptyState>
+  <p-card
+    class="d-flex flex-column align-items-center justify-content-center mb-2 mt-3 position-relative"
+  >
+    <ng-template pTemplate="header"></ng-template>
+    <span class="text-center text-dark fw-bold">Żartów nie znaleziono.</span>
+  </p-card>
+</ng-template>

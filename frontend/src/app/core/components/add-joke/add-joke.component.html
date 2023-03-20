@@ -1,0 +1,87 @@
+<button
+  class="text-dark p-button-warning"
+  pButton
+  type="button"
+  label="Dodaj"
+  data-bs-toggle="modal"
+  data-bs-target="#addJokeModal"
+></button>
+
+<div
+  class="modal fade"
+  id="addJokeModal"
+  tabindex="-1"
+  aria-hidden="true"
+  #addJokeModal
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form [formGroup]="jokesForm" (ngSubmit)="addJokeSubmit()">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Dodawanie żartu</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-block">
+            <p-dropdown
+              formControlName="category"
+              [options]="categories"
+              optionLabel="name"
+              placeholder="Wybierz kategorię"
+            ></p-dropdown>
+            <span
+              *ngIf="jokesForm.controls['category'].value.id === null"
+              class="p-float-label mt-3 category-name-input"
+            >
+              <input
+                pInputText
+                id="float-category-name"
+                formControlName="categoryName"
+                [required]="jokesForm.controls['category'].value.id === null"
+              />
+              <label for="float-category-name">Wprowadź nazwę kategorii</label>
+            </span>
+            <span class="p-float-label mt-3">
+              <textarea
+                formControlName="content"
+                id="float-input"
+                pInputTextarea
+              ></textarea>
+              <ng-container
+                *ngIf="
+                  jokesForm.get('content')?.invalid &&
+                  (jokesForm.get('content')?.dirty ||
+                    jokesForm.get('content')?.touched)
+                "
+              >
+                <ng-container
+                  *ngIf="jokesForm.get('content')?.hasError('minlength')"
+                >
+                  Tekst musi mieć długość co najmniej 10 znaków.
+                </ng-container>
+              </ng-container>
+              <label for="float-input">Wprowadź treść żartu</label>
+            </span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary fw-bold"
+            data-bs-dismiss="modal"
+          >
+            Anuluj
+          </button>
+          <button type="submit" class="btn btn-primary text-dark fw-bold">
+            Dodaj
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

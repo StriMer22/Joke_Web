@@ -1,0 +1,12 @@
+app-header {
+  .active {
+    color: var(--primary-color);
+    &:hover,
+    &:focus {
+      color: var(--primary-color);
+    }
+  }
+  #logout-link {
+    cursor: pointer;
+  }
+}

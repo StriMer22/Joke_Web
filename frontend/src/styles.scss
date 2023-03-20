@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../src/app/app.component.scss";
+
+:root {
+  --primary-color: #ffcc15;
+  --danger-color: #e44c4c;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+.p-button,
+.p-button:focus,
+.p-button:hover,
+.p-button:active {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #000 !important;
+}
+
+.p-dialog {
+  width: 35vw !important;
+
+  @media (max-width: 1100px) {
+    .p-dialog {
+      width: 80vw !important;
+    }
+  }
+}

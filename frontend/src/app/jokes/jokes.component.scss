@@ -1,0 +1,29 @@
+app-jokes {
+  height: 100%;
+
+  .container-joke {
+    min-width: min-content;
+    padding: 5px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .d-flex.flex-column {
+      width: 25em;
+      margin-top: 5rem;
+    }
+
+    app-joke-card .p-card {
+      width: 25em;
+    }
+  }
+
+  @media only screen and (max-width: 420px) {
+    .d-flex.flex-column {
+      width: 20em;
+    }
+
+    app-joke-card .p-card {
+      width: 20em;
+    }
+  }
+}

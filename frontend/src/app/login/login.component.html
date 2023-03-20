@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p-card>
+        <ng-template pTemplate="header">
+          <span class="fs-2 ms-2">Logowanie</span>
+        </ng-template>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <div class="p-fluid">
+            <div class="p-field">
+              <label for="username">Nazwa użytkownika</label>
+              <input
+                id="username"
+                type="text"
+                pInputText
+                formControlName="username"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('username')?.invalid &&
+                  (loginForm.get('username')?.dirty ||
+                    loginForm.get('username')?.touched)
+                "
+                class="p-error mt-1"
+              >
+                <div *ngIf="loginForm.get('username')?.errors">
+                  Nazwa użytkownika jest wymagana.
+                </div>
+              </div>
+            </div>
+            <div class="p-field">
+              <label for="password">Hasło</label>
+              <input
+                id="password"
+                type="password"
+                pInputText
+                formControlName="password"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('password')?.invalid &&
+                  (loginForm.get('password')?.dirty ||
+                    loginForm.get('password')?.touched)
+                "
+                class="p-error mt-1"
+              >
+                <div *ngIf="loginForm.get('password')?.errors">
+                  Hasło jest wymagane.
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="mt-3 p-button-warning"
+              pButton
+              label="Zaloguj się"
+            ></button>
+            <div class="text-center mt-3">
+              Nie masz jeszcze konta?
+              <a routerLink="/register">Załóż konto tutaj</a>
+            </div>
+          </div>
+        </form>
+      </p-card>
+    </div>
+  </div>
+</div>

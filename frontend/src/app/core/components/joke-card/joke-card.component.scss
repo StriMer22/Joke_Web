@@ -1,0 +1,21 @@
+app-joke-card {
+  .p-card {
+    width: 35em;
+    .p-card-body {
+      text-align: center;
+      padding-bottom: 4rem;
+    }
+    .p-card-header {
+      text-align: right;
+      padding: 15px;
+    }
+  }
+  .p-button-danger,
+  .p-button-danger:focus,
+  .p-button-danger:hover,
+  .p-button-danger:active {
+    background-color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
+    color: white !important;
+  }
+}

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/jokes">
+      <img src="../../assets/img/joke.svg" />
+    </a>
+    <div class="d-flex">
+      <a
+        routerLink="/jokes"
+        [class.active]="isLinkActive('/jokes')"
+        class="d-inline p-2 navbar-brand"
+        >Żarty</a
+      >
+      <ng-container
+        *ngIf="
+          isLoggedIn | async;
+          then loggedInTemplate;
+          else loggedOutTemplate
+        "
+      ></ng-container>
+    </div>
+  </div>
+</nav>
+
+<ng-template #loggedInTemplate>
+  <a
+    routerLink="/my-jokes"
+    [class.active]="isLinkActive('/my-jokes')"
+    class="d-inline p-2 navbar-brand"
+    >Moje Żarty</a
+  >
+  <a class="d-inline p-2 navbar-brand" id="logout-link" (click)="submitLogOut()"
+    >Wyloguj się</a
+  >
+</ng-template>
+
+<ng-template #loggedOutTemplate>
+  <a
+    routerLink="/login"
+    [class.active]="isLinkActive('/login')"
+    class="d-inline p-2 navbar-brand"
+    >Zaloguj się</a
+  >
+</ng-template>

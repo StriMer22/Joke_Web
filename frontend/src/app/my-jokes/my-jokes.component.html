@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column container-joke mt-15">
+    <ng-container
+      *ngIf="true"
+      class="d-flex align-items-center justify-content-start ml-auto mt-2"
+    >
+      <app-add-joke (jokeAdded)="getMyJokes()"></app-add-joke>
+    </ng-container>
+    <div class="joke-card-container">
+      <ng-container *ngFor="let joke of jokes">
+        <app-joke-card
+          (jokeDeleted)="getMyJokes()"
+          [currentJoke]="joke"
+        ></app-joke-card>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<p-confirmDialog #cd [style]="{ width: '25vw' }">
+  <ng-template pTemplate="header">
+    <h3>Potwierdzenie</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      class="text-dark p-button-warning"
+      pButton
+      label="Nie"
+      (click)="cd.reject()"
+    ></button>
+    <button
+      type="button"
+      class="text-dark p-button-warning"
+      pButton
+      label="Tak"
+      (click)="cd.accept()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

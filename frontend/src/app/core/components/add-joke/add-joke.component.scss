@@ -1,0 +1,36 @@
+app-add-joke {
+  .p-dropdown {
+    min-width: 100%;
+    width: max-content;
+    margin-bottom: 10px;
+  }
+
+  #float-category-name {
+    min-width: 100%;
+    width: max-content;
+    margin-bottom: 5px;
+  }
+
+  .p-inputtextarea {
+    min-width: 100%;
+    width: max-content;
+    min-height: 8em;
+  }
+  .modal-header {
+    border-bottom: 0 none;
+  }
+  .modal-footer {
+    border-top: 0 none;
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      width: 7em;
+    }
+    .btn-secondary,
+    .btn-secondary:focus {
+      color: var(--primary-color);
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
